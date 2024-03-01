@@ -1,7 +1,7 @@
 # G4
 
 ## 👩‍💻 Membros de CC
-
+DemetriusSou
 <ul>
   <li>
     <a href="https://github.com/Luiz-Edu0202">Luiz Eduardo Bryner</a> - elab@cesar.school 📩
@@ -10,7 +10,10 @@
     <a href="https://github.com/evaldocunhaf">Evaldo Galdino</a> - egcf@cesar.school 📩
   </li>
   <li>
-    <a href="https://github.com/mateusioliveira">Mateus Roberto Oliveira</a> - mro@cesar.school 📩
+    <a href="https://github.com/mateusioliveira">Mateus Roberto Oliveira</a> - mrio@cesar.school 📩
+  </li>
+  <li>
+    <a href="https://github.com/DemetriusSou">Demetrius</a> - dspj@cesar.school 📩
   </li>
 </ul>
 
@@ -37,6 +40,14 @@
         <img src="https://avatars.githubusercontent.com/mateusioliveira" width="100px;" alt="Foto de Mateus"/><br>
         <sub>
           <b>Mateus Roberto</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/mateusioliveira">
+        <img src="https://avatars.githubusercontent.com/DemetriusSou" width="100px;" alt="Foto de Demetrius"/><br>
+        <sub>
+          <b>Demetrius</b>
         </sub>
       </a>
     </td>
