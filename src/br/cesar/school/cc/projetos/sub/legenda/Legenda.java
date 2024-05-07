@@ -2,7 +2,9 @@ package br.cesar.school.cc.projetos.sub.legenda;
 
 import br.cesar.school.cc.projetos.sub.corpo.CorpoTexto;
 import br.cesar.school.cc.projetos.sub.filme.Filme;
+import br.cesar.school.cc.projetos.sub.moderacao.Moderacao;
 import br.cesar.school.cc.projetos.sub.utils.Registro;
+import br.cesar.school.cc.projetos.sub.usuario.Usuario;
 
 import java.awt.*;
 import java.time.LocalDate;
