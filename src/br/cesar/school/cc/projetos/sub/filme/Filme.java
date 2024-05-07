@@ -33,5 +33,22 @@ public class Filme extends Registro {
     public String getReferencia() {
         return referencia;
     }
-    
+
+    public Legenda[] getLegendas() {
+        return this.legendas;
+    }
+
+    public void addLegendas(Legenda legenda) {
+        if (this.legendas == null) {
+            this.legendas = new Legenda[2];
+        }else{
+            Legenda[] legendaaux = this.legendas;
+            this.legendas = new Legenda[this.legendas.length + 1];
+            System.arraycopy(legendaaux, 0, this.legendas, 0, this.legendas.length);
+        }
+    }
+
+    public String gerarID(){
+        return this.nome + this.autor + this.referencia;
+    }
 }

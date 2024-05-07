@@ -1,5 +1,6 @@
 package br.cesar.school.cc.projetos.sub.legenda;
 
+import br.cesar.school.cc.projetos.sub.corpo.CorpoTexto;
 import br.cesar.school.cc.projetos.sub.filme.Filme;
 import br.cesar.school.cc.projetos.sub.utils.Registro;
 
