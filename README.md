@@ -58,7 +58,7 @@ Se você deseja contribuir com este repositório, siga estas etapas:
 DemetriusSou
 <ul>
   <li>
-    <a href="https://github.com/Luiz-Edu0202">Luiz Eduardo Bryner</a> - elab@cesar.school 📩
+    <a href="https://github.com/Luiz-Edu0202">Luiz Eduardo Brayner</a> - leab@cesar.school 📩
   </li>
   <li>
     <a href="https://github.com/evaldocunhaf">Evaldo Galdino</a> - egcf@cesar.school 📩
