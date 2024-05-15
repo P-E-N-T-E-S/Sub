@@ -7,7 +7,6 @@ import br.cesar.school.cc.projetos.sub.utils.Registro;
 import br.cesar.school.cc.projetos.sub.usuario.Usuario;
 
 import java.awt.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Legenda extends Registro {

@@ -34,7 +34,8 @@ public class CorpoTexto extends Registro {
     public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
     }
-    public String gerarIdUnico() {
-        return arquivo.gerarIdUnico() + "corpo";
+
+    public Legenda getArquivo() {
+        return arquivo;
     }
 }
