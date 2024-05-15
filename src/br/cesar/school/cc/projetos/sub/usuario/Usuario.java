@@ -58,8 +58,4 @@ public class Usuario extends Registro {
             System.arraycopy(legendaaux, 0, this.legendas, 0, this.legendas.length);
         }
     }
-
-    public String gerarIdUnico(){
-        return this.email;
-    }
 }

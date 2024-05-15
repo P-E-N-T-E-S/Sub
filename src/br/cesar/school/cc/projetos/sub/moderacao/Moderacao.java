@@ -40,8 +40,4 @@ public class Moderacao extends Registro {
     public Usuario getUsuario() {
         return usuario;
     }
-
-    public String gerarIdUnico(){
-        return legenda.gerarIdUnico() + this.usuario.getEmail();
-    }
 }

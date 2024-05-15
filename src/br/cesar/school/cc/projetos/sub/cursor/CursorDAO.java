@@ -1,11 +1,13 @@
 package br.cesar.school.cc.projetos.sub.cursor;
-
+import br.cesar.school.cc.projetos.sub.legenda.LegendaDAO;
 import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
 
 public class CursorDAO {
+    private LegendaDAO legendaDao = new LegendaDAO();
     private CadastroObjetos cadastro = new CadastroObjetos(Cursor.class);
     public String gerarIdUnico(Cursor cursor){
-        return cursor.getArquivo().gerarIdUnico() + "cursor";
+        String legenda = legendaDao.gerarID(cursor.getArquivo());
+        return legenda + "cursor";
     }
     public Cursor buscar(String idCursor) {
         return (Cursor) cadastro.buscar(idCursor);
