@@ -47,8 +47,4 @@ public class Filme extends Registro {
             System.arraycopy(legendaaux, 0, this.legendas, 0, this.legendas.length);
         }
     }
-
-    public String gerarID(){
-        return this.nome + this.autor + this.referencia;
-    }
 }

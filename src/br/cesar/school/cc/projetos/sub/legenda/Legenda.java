@@ -61,7 +61,7 @@ public class Legenda extends Registro {
         return filme;
     }
 
-    public String gerarIdUnico(){
-        return this.nomeArquivo + usuario.getEmail() + filme.getNome();
+    public Usuario getUsuario() {
+        return usuario;
     }
 }

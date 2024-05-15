@@ -16,7 +16,8 @@ public class Cursor extends Registro {
     public void setPosicao(int posicao) {
         this.posicao = posicao;
     }
-    public String gerarIdUnico(){
-        return this.arquivo.gerarIdUnico() + "cursor";
+
+    public Legenda getArquivo() {
+        return arquivo;
     }
 }
