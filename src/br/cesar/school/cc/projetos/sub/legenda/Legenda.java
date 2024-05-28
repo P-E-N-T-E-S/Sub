@@ -16,7 +16,7 @@ public class Legenda extends Registro {
     private Cursor ponteiro;
     private Filme filme;
     private CorpoTexto arquivo;
-    private Moderacao[] moderacaos;
+    private Moderacao[] moderacoes;
     private Usuario usuario;
 
     public Legenda(String nomeArquivo, String caminhoArquivo) {
@@ -63,5 +63,9 @@ public class Legenda extends Registro {
 
     public Usuario getUsuario() {
         return usuario;
+    }
+
+    public Moderacao[] getModeracoes(){
+        return moderacoes;
     }
 }
