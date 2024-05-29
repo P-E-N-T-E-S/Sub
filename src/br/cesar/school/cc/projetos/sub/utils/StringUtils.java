@@ -7,4 +7,8 @@ public class StringUtils {
         }
         return str.substring(str.length() - 4); // Pega os três últimos caracteres
     }
+
+    public static boolean isVaziaOuNula(String valor) {
+        return valor == null || valor.trim().equals("");
+    }
 }

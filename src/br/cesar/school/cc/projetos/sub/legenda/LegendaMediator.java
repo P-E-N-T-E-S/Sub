@@ -1,6 +1,7 @@
 package br.cesar.school.cc.projetos.sub.legenda;
 
 import br.cesar.school.cc.projetos.sub.utils.StringUtils;
+import br.cesar.school.cc.projetos.sub.filme.FilmeMediator;
 
 import java.time.LocalDateTime;
 
