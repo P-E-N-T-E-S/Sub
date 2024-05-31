@@ -2,6 +2,9 @@ package br.cesar.school.cc.projetos.sub.legenda;
 
 import br.cesar.school.cc.projetos.sub.utils.StringUtils;
 import br.cesar.school.cc.projetos.sub.filme.FilmeMediator;
+import br.cesar.school.cc.projetos.sub.usuario.UsuarioMediator;
+import br.cesar.school.cc.projetos.sub.cursor.CursorMediator;
+import br.cesar.school.cc.projetos.sub.moderacao.ModeracaoMediator;
 
 import java.time.LocalDateTime;
 
@@ -29,7 +32,7 @@ public class LegendaMediator {
         if(nomeArquivo.isEmpty()){
             return "Nome de Arquivo Vazio";
         }
-        String extensao = StringUtils.getUltimosTresCaracteres(nomeArquivo);
+        String extensao = StringUtils.getUltimosCaracteres(nomeArquivo, 3);
         if(!extensao.equals(".srt")){
             return "Extensão de Arquivo Invalida";
         }
@@ -42,7 +45,7 @@ public class LegendaMediator {
         }
         String validarFilme = filmeMediator.validar(legenda.getFilme());
         String validarCursor = cursorMediator.validar(legenda.getPonteiro());
-        String validarUsuario = usuarioMediator.validar(usuarioMediator);
+        String validarUsuario = usuarioMediator.validar(legenda.getUsuario());
         if(validarFilme != null){
             return validarFilme;
         }

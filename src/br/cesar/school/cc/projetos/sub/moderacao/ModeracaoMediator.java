@@ -1,5 +1,6 @@
 package br.cesar.school.cc.projetos.sub.moderacao;
 
+import br.cesar.school.cc.projetos.sub.usuario.UsuarioMediator;
 import br.cesar.school.cc.projetos.sub.utils.StringUtils;
 
 public class ModeracaoMediator {
@@ -23,7 +24,7 @@ public class ModeracaoMediator {
             return "Descricao nao informada";
         }
         String validacaoUsuario = usuarioMediator.validar(moderacao.getUsuario());
-        if(!StringUtils.isVaziaOuNula(validacaoUsuario){
+        if(!StringUtils.isVaziaOuNula(validacaoUsuario)){
             return validacaoUsuario;
         }
         return null;

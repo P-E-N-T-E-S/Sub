@@ -4,7 +4,7 @@ public class CursorMediator {
     private static CursorMediator instancia;
     private CursorDAO cursorDAO = new CursorDAO();
 
-    public static CursorMediator getInstancia() {
+    public static CursorMediator obterInstancia() {
         if (instancia == null) {
             instancia = new CursorMediator();
         }
@@ -39,7 +39,7 @@ public class CursorMediator {
                 msg = "Cursor nao encontrado";
             }
         }
-        return null;
+        return msg;
     }
 
     public String excluir(Cursor cursor) {
