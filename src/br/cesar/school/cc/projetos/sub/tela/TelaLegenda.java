@@ -1,5 +1,8 @@
 package br.cesar.school.cc.projetos.sub.tela;
 
+import br.cesar.school.cc.projetos.sub.legenda.Legenda;
+import br.cesar.school.cc.projetos.sub.legenda.LegendaMediator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,25 +11,41 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class TelaLegenda {
 	private JFrame frame;
 	private JTextArea textAreaLegenda;
+	private JTextField nomeArquivoField;
+	private LegendaMediator legendaMediator;
+	private String caminhoArquivo;
 
 	public TelaLegenda() {
+		this("", "", "");
+	}
+
+	public TelaLegenda(String nomeArquivo, String caminhoArquivo, String conteudoLegenda) {
+		this.caminhoArquivo = caminhoArquivo;
+		legendaMediator = LegendaMediator.obterInstancia();
+
 		frame = new JFrame("Editor de Legenda");
-		frame.setSize(400, 300);
+		frame.setSize(500, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 
-		textAreaLegenda = new JTextArea();
+		textAreaLegenda = new JTextArea(conteudoLegenda);
 		textAreaLegenda.setLineWrap(true);
 		JScrollPane scrollPane = new JScrollPane(textAreaLegenda);
 
+		JPanel panelInputs = new JPanel(new GridLayout(1, 2));
+		JLabel nomeArquivoLabel = new JLabel("Nome do Arquivo (.srt):");
+		nomeArquivoField = new JTextField(nomeArquivo);
+
+		panelInputs.add(nomeArquivoLabel);
+		panelInputs.add(nomeArquivoField);
+
 		JPanel panelBotoes = new JPanel();
 		JButton salvarButton = new JButton("Salvar Legenda");
+		JButton voltarButton = new JButton("Voltar");
 
 		salvarButton.addActionListener(new ActionListener() {
 			@Override
@@ -35,8 +54,17 @@ public class TelaLegenda {
 			}
 		});
 
-		panelBotoes.add(salvarButton);
+		voltarButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				voltarParaCatalogo();
+			}
+		});
 
+		panelBotoes.add(salvarButton);
+		panelBotoes.add(voltarButton);
+
+		frame.add(panelInputs, BorderLayout.NORTH);
 		frame.add(scrollPane, BorderLayout.CENTER);
 		frame.add(panelBotoes, BorderLayout.SOUTH);
 
@@ -44,26 +72,38 @@ public class TelaLegenda {
 	}
 
 	public void salvarLegenda() {
-		String textoLegenda = textAreaLegenda.getText();
-		if (!textoLegenda.isEmpty()) {
-			LocalDateTime agora = LocalDateTime.now();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
-			String nomeArquivo = "legenda_" + agora.format(formatter) + ".txt";
-			File diretorio = new File("legendas");
-			if (!diretorio.exists()) {
-				diretorio.mkdir();
-			}
-			File arquivo = new File(diretorio, nomeArquivo);
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo))) {
-				writer.write(textoLegenda);
-				JOptionPane.showMessageDialog(frame, "Legenda salva com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-			} catch (IOException ex) {
-				JOptionPane.showMessageDialog(frame, "Erro ao salvar a legenda.", "Erro", JOptionPane.ERROR_MESSAGE);
-				ex.printStackTrace();
-			}
-		} else {
-			JOptionPane.showMessageDialog(frame, "Nada para salvar. Legenda vazia.", "Erro", JOptionPane.ERROR_MESSAGE);
+		String nomeArquivo = nomeArquivoField.getText();
+		if (!nomeArquivo.endsWith(".srt")) {
+			nomeArquivo += ".srt";
 		}
+
+		String textoLegenda = textAreaLegenda.getText();
+		if (nomeArquivo.isEmpty() || textoLegenda.isEmpty()) {
+			JOptionPane.showMessageDialog(frame, "Todos os campos devem ser preenchidos.", "Erro", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		caminhoArquivo = "legendas/" + nomeArquivo;
+		Legenda legenda = new Legenda(nomeArquivo, caminhoArquivo);
+
+		File diretorio = new File("legendas");
+		if (!diretorio.exists()) {
+			diretorio.mkdir();
+		}
+
+		File arquivo = new File(caminhoArquivo);
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo))) {
+			writer.write(textoLegenda);
+			JOptionPane.showMessageDialog(frame, "Legenda salva com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+		} catch (IOException ex) {
+			JOptionPane.showMessageDialog(frame, "Erro ao salvar a legenda.", "Erro", JOptionPane.ERROR_MESSAGE);
+			ex.printStackTrace();
+		}
+	}
+
+	public void voltarParaCatalogo() {
+		frame.dispose();
+		new TelaCatalogo();
 	}
 
 	public static void main(String[] args) {
