@@ -12,8 +12,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class TelaLegenda {
-	private JFrame frame;
+public class TelaLegenda extends TelaModel{
 	private JTextArea textAreaLegenda;
 	private JTextField nomeArquivoField;
 	private LegendaMediator legendaMediator;
@@ -24,13 +23,10 @@ public class TelaLegenda {
 	}
 
 	public TelaLegenda(String nomeArquivo, String caminhoArquivo, String conteudoLegenda) {
+		super("Editor de Legenda");
 		this.caminhoArquivo = caminhoArquivo;
 		legendaMediator = LegendaMediator.obterInstancia();
 
-		frame = new JFrame("Editor de Legenda");
-		frame.setSize(500, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
 
 		textAreaLegenda = new JTextArea(conteudoLegenda);
 		textAreaLegenda.setLineWrap(true);

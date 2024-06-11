@@ -4,34 +4,34 @@ import br.cesar.school.cc.projetos.sub.usuario.UsuarioMediator;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class TelaModel
 {
-	private JFrame frame;
-	private UsuarioMediator usuarioMediator;
-
+	protected JFrame frame;
 	static JMenuBar navbar;// menubar
 	static JMenu arquivoBtn, editarBtn, ferramentasBtn, ajudaBtn;// JMenu
 	static JMenuItem[] menuItemsArquivo = new JMenuItem[4], menuItemsEditar = new JMenuItem[3], menuItemsFerramentas = new JMenuItem[3], menuItemsAjuda = new JMenuItem[4];// Menu items
 
-	public TelaModel()
+	public TelaModel(String name)
 	{
-		initialize("Teste");
+		initializeMain(name);
 	}
-	private void initialize(String name)
+	private void initializeMain(String name)
 	{
+		java.net.URL imgURL = getClass().getResource("/br/cesar/school/cc/projetos/sub/tela/imgs/logo.png");
+		if (imgURL == null) {
+			System.err.println("Imagem não encontrada");
+			return;
+		}
+		Image icon = new ImageIcon(imgURL).getImage();
+		System.out.println("Imagem encontrada: " + imgURL);
+
 		frame = new JFrame(name);
 		frame.setSize(1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 
-		JLabel logoLabel = new JLabel("Sub!", SwingConstants.CENTER);
-		logoLabel.setFont(new Font("Arial", Font.BOLD, 36));
-		logoLabel.setBackground(Color.YELLOW);
-		logoLabel.setOpaque(true);
-		frame.add(logoLabel, BorderLayout.NORTH);
+		frame.setIconImage(icon);
 
 		navbar = new JMenuBar();
 		arquivoBtn = new JMenu("Arquivo");
@@ -79,16 +79,8 @@ public class TelaModel
 		navbar.add(ajudaBtn);
 
 		frame.setJMenuBar(navbar);
-		
+
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args)
-	{
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				new TelaModel();
-			}});
-	}
 }

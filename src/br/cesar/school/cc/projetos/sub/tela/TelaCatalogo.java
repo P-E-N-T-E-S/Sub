@@ -8,16 +8,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
 
-public class TelaCatalogo {
-	private JFrame frame;
+public class TelaCatalogo extends TelaModel{
+
 	private JList<String> listLegendas;
 	private DefaultListModel<String> listModel;
 
 	public TelaCatalogo() {
-		frame = new JFrame("Catálogo de Legendas");
-		frame.setSize(500, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
+		super("Catalogo");
 
 		listModel = new DefaultListModel<>();
 		listLegendas = new JList<>(listModel);

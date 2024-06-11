@@ -8,19 +8,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TelaCadastro {
-	private JFrame frame;
+public class TelaCadastro extends TelaModel{
 	private JTextField nomeField;
 	private JTextField emailField;
 	private JPasswordField senhaField;
 	private UsuarioMediator usuarioMediator;
 
 	public TelaCadastro() {
+		super("Cadastro");
 		usuarioMediator = UsuarioMediator.obterInstancia();
-
-		frame = new JFrame("Cadastro de Usuário");
-		frame.setSize(400, 200);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JLabel nomeLabel = new JLabel("Nome:");
 		nomeField = new JTextField();

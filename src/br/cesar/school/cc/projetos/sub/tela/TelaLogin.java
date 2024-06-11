@@ -5,19 +5,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TelaLogin {
-	private JFrame frame;
+public class TelaLogin extends TelaModel{
 	private JTextField textFieldEmail;
 	private JPasswordField passwordFieldSenha;
 
-	public TelaLogin() {
+	public TelaLogin()
+	{
+		super("Login");
 		initialize();
 	}
 
 	private void initialize() {
-		frame = new JFrame("Login de Usuário");
-		frame.setSize(400, 200);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JLabel lblEmail = new JLabel("Email:");
 		textFieldEmail = new JTextField(20);
